@@ -16,10 +16,14 @@ class Person(models.Model): # this is create here
     date_create = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True) 
     all_totals = models.CharField(max_length=350)
-    all_totals = models.CharField(max_length=350)
+    all_score = models.CharField(max_length=350)
     Type_person = models.CharField(
         max_length=10,
         choices=list_type_off_person,
         default=tasfiye,
     )
     # felan tamom bashe # we will add 
+    def __str__(self) -> str:
+        print("panel access")
+        return f'{self.name , self.family} -> {self.all_totals} : {self.all_score}'
+    
